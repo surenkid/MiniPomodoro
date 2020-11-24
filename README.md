@@ -4,7 +4,7 @@
 
 运行该工具后，它会在任务栏上以进度条的形式显示时间，到时间后弹出提示，没有其他功能，简单够用。
 
-![极简番茄计时器](https://images0.cnblogs.com/blog/25284/201410/152200445292458.png)
+![极简番茄计时器](https://github.com/surenkid/MiniPomodoro/raw/master/preview.png)
 
 该项目是来源于[123](https://www.cnblogs.com/1-2-3/p/MiniPomodoro-Intro.html)开源的项目，我在它的基础上，增加下如下功能：
 
