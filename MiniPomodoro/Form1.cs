@@ -16,6 +16,7 @@ namespace MiniPomodoro
         private readonly decimal ShortRestMinutes = 5M; //5; // 休息时间
         private DateTime _startTime;
         private PomodoState _currentState;
+        private int counter = 0;
 
         public Form1()
         {
@@ -34,6 +35,7 @@ namespace MiniPomodoro
         /// </summary>
         private void StartWorkPomodo()
         {
+            this.counter++;
             _startTime = DateTime.Now;
             _currentState = PomodoState.Working;
         }
@@ -57,6 +59,9 @@ namespace MiniPomodoro
             {
                 if (elapsedMinutes >= WorkMinutes)
                 {
+                    timer1.Stop();
+                    MessageBox.Show("第" + this.counter + "个番茄结束，点击开始休息！\n\r\n\r开始时间：" + _startTime + "\n\r结束时间：" + DateTime.Now, "番茄结束", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                    timer1.Start();
                     StartRestPomodo();
                 }
             }
@@ -65,7 +70,7 @@ namespace MiniPomodoro
                 if (elapsedMinutes >= ShortRestMinutes)
                 {
                     timer1.Stop();
-                    MessageBox.Show("休息时间结束，即将开始新的番茄！","提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("第" + this.counter + "次休息结束，点击开始第" + (this.counter + 1) + "个番茄！\n\r\n\r开始时间：" + _startTime + "\n\r结束时间：" + DateTime.Now, "休息结束", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                     timer1.Start();
                     StartWorkPomodo();
                 }
